@@ -1,11 +1,33 @@
-{
-  "name": "notes-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "webpack.config.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1" 
-  },
-  "author": "koteho",
-  "liscense": "ISC"
+var webpack = require('webpack');
+
+module.exports = {
+    entry: "./client/main.js",
+    output: {
+        path: __dirname + '/public/build/',
+        publicPath: "build/",
+        filename: "bundle.js"
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                loader: "babel",
+                exclude: [/node_modules/, /public/]
+            },
+            {
+                test: /\.less$/,
+                loader: "style-loader!css-loader!autoprefixer-loader!less",
+                exclude: [/node_modules/, /public/]
+            },
+            {
+                test: /\.jsx$/,
+                loader: "react-hot!babel",
+                exclude: [/node_modules/, /public/]
+            },
+            {
+                test: /\.json$/,
+                loader: "json-loader"
+            }
+        ]
+    }
 }
