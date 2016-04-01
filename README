@@ -1,0 +1,13 @@
+//find app at:
+https://github.com/koteho/notes-app
+
+// to build proj
+npm run webpack-devserver
+
+//all libs you need are in package.json
+
+//to install stuff from package.json
+npm install
+
+// ??? this helps with installing all packedges
+webpack -p
