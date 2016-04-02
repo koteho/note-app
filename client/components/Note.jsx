@@ -1,8 +1,24 @@
 import React from 'react';
 
-const Note = React.createClass({ 
+import './Note.less';
+
+const Note = React.createClass({
     render() {
-        return <h1> This is Note.jsx </h1>;
+        const style = { backgroundColor: this.props.color };
+
+        return (
+            <div className='Note' style={style}>
+                <span className='Note__del-icon' onClick={this.props.onDelete}> × </span>
+                {
+                    this.props.title
+                    ?
+                        <h4 className='Note__title'>{this.props.title}</h4>
+                    :
+                        null
+                }
+                <div className='Note__text'>{this.props.children}</div>
+            </div>
+        );
     }
 });
 
